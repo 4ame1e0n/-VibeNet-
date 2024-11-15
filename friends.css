@@ -1,0 +1,32 @@
+.friend-row {
+    transition: background-color 0.3s ease;
+}
+
+.friend-row:hover {
+    background-color: #f8f9fa;
+}
+
+.friend-actions {
+    margin-top: 10px;
+}
+
+.friend-actions form {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+
+.btn.btn-warning {
+    background-color: #282878; /* Your desired color for "Send friendship" */
+    color: white; 
+}
+
+.btn.btn-danger {
+    background-color: #692323; 
+    color: white; 
+}
+
+.btn.btn-primary {
+    background-color: #58337a; 
+    color: white; 
+}

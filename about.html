@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}
+About
+{% endblock  %}
+
+{% block body %}
+<div class="container-xl">
+  <div class="row">
+    <div class="col-lg-8 mx-auto">
+      <h2>About Us</h2>
+      <div class="team-members">
+        <div class="team-member">
+          <div class="img-box">
+            <img src="https://i.pinimg.com/originals/c8/4f/95/c84f95709714bbadc37efebf1754ba22.gif" alt="">
+          </div>
+          <p class="overview"><b>Sagyndykov Danial</b>, Backend Developer</p>
+          <p class="testimonial">A backend developer is a specialist who deals with the server side of websites, mobile and desktop applications and games. It implements the internal logic of the application, ensures its interaction with databases and external services.</p>
+        </div>
+        <div class="team-member">
+          <div class="img-box">
+            <img src="https://i.pinimg.com/originals/de/c4/89/dec4890caf73f41318d9161eba9cf51e.gif" alt="">
+          </div>
+          <p class="overview"><b>Aruzhan Torebek</b>, Frontend Developer</p>
+          <p class="testimonial">A frontend developer is a specialist who creates user interfaces. He is responsible for the entire external part of the site or application with which people interact: menus, product cards in the online store, buttons, feedback forms. Thanks to the high-quality work of the frontend developer, fast and convenient sites appear.</p>
+        </div>
+        <div class="team-member">
+          <div class="img-box">
+            <img src="https://i.pinimg.com/originals/43/23/e9/4323e9a710bb6c8973346125892c845c.gif" alt="">
+          </div>
+          <p class="overview"><b>Kundyz Zhumazhanova</b>, Designer</p>
+          <p class="testimonial">A designer is a person who plans the form or structure of something before it is made, by preparing drawings or plans. In practice, anyone who creates tangible or intangible objects, products, processes, laws, games, graphics, services, or experiences can be called a designer.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+     <script>$(window).on('load',function () {
+     var current = location.pathname;
+     console.log(current);
+     $('#navbarSupportedContent ul li a').each(function(){
+         var $this = $(this);
+         // if the current path is like this link, make it active
+         if($this.attr('href').indexOf(current) !== -1){
+             $this.parent().addClass('active');
+             $this.parents('.menu-submenu').addClass('show-dropdown');
+            $this.parents('.menu-submenu').parent().addClass('active');
+         }else{
+             $this.parent().removeClass('active');
+         }
+   })
+ });</script>
+{% endblock  %}

@@ -87,3 +87,5 @@ class Friendship(db.Model):
 
     def __repr__(self):
         return f"<Friendship % {self.id}>"
+with app.app_context():
+    db.create_all()

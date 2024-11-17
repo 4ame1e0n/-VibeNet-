@@ -1,0 +1,25 @@
+/* Style for the background image container */
+.bg-body-tertiary {
+    background-image: url('https://i.pinimg.com/originals/f5/f2/74/f5f27448c036af645c27467c789ad759.gif');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.9;
+    width: 100%;
+    margin-top: -16px;
+    margin-bottom: -16px;
+}
+
+.text-on-background {
+  font-family: 'Arial', cursive;
+  /* Другие стили */
+}
+
+/* Style for the text on the background */
+.text-on-background {
+  color: white; /* Maintains white text for good contrast */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Improved shadow for readability */
+  font-family: 'Arial', cursive; /* New cursive font for a more playful look */
+  font-size: 3rem; /* Increase font size for title */
+  text-align: left; /* Align text to the left */
+  margin: 50px auto 0 auto; /* Add top margin and center horizontally */
+}

@@ -1,0 +1,75 @@
+/* Общие стили */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f4f8; /* Light background color */
+    color: #333;
+}
+
+/* Секция команды */
+.team-section {
+    text-align: center;
+    padding: 50px 0;
+    background-color: #ffffff; /* White section background */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.section-title {
+    font-size: 36px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    color: #007bff; /* Primary color */
+}
+
+/* Карточки членов команды */
+.team-member {
+    display: inline-block;
+    width: 300px;
+    margin: 20px;
+    text-align: center;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow around cards */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.team-member:hover {
+    transform: translateY(-10px); /* Slight lift on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+}
+
+.team-member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    border: 3px solid #007bff; /* Border with primary color */
+}
+
+.team-member .name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #007bff; /* Primary color */
+    margin-bottom: 10px;
+}
+
+.team-member .role {
+    font-size: 16px;
+    color: #555; /* Neutral color for roles */
+    margin-bottom: 10px;
+}
+
+.team-member .description {
+    font-size: 14px;
+    color: #666; /* Slightly lighter text color */
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .team-member {
+        width: 100%;
+        margin: 10px 0;
+    }
+}

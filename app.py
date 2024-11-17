@@ -1,16 +1,20 @@
-from flask import Flask, render_template, url_for, request, redirect, session, make_response
-
+from flask import render_template, url_for, request, redirect, session, make_response
+from flaskapp import *
 from werkzeug.security import generate_password_hash, check_password_hash
+from messages import *
+from friends import *
+from chats import *
+from posting import *
+from user_page import *
 
-app = Flask(__name__)
 
 
 
 @app.route('/')
-
 @app.route('/home')
 def index():
     return render_template("index.html")
+
 
 @app.route('/about')
 def about():
@@ -19,6 +23,7 @@ def about():
 @app.route('/user/<string:name>/<int:id>')
 def user(name, id):
     return "User page:" + name + "-" + str(id)
+
 
 @app.route('/register', methods=['POST', 'GET'])
 def register_user():
@@ -119,12 +124,22 @@ def logout():
     return redirect(url_for('index'))
 
 
+@app.route('/update_city', methods=['POST'])
+def update_city():
+    if 'id' in session:
+        user = User.query.get(session['id'])
+        if user:
+            city = request.form.get('city')
+            user.city = city
+            db.session.commit()
+            flash('City updated successfully!', 'success')
+    return redirect(url_for('user_page', user_id=session['id']))
 
 
 
 
 if __name__ == "__main__":
-        app.run(debug=True)
+        #app.run(debug=True)
         socketio.run(app, debug=True, allow_unsafe_werkzeug=True)
         #socketio.run(app, debug=True, use_reloader=False, host='0.0.0.0', port=5000, allow_unsafe_werkzeug=True)
 

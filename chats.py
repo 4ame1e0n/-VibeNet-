@@ -19,7 +19,7 @@ def chat(receiver_id):
         receiver = User.query.get(receiver_id)
 
         if receiver:
-            
+
             conversation_id = f"{user_id}_{receiver_id}"
 
             socketio.emit('user_joined', {
@@ -27,7 +27,6 @@ def chat(receiver_id):
                 'username': User.query.get(user_id).name,
             }, room=conversation_id)
 
-       
             messages = Chat.query.filter_by(conversation_id=conversation_id).all()
 
             return render_template('chat.html', receiver=receiver, conversation_id=conversation_id, messages=messages)
@@ -41,10 +40,9 @@ def chat(receiver_id):
 def delete_history(receiver_id):
     if 'id' in session:
         user_id = session['id']
-      
+
         conversation_id = f"{user_id}_{receiver_id}"
 
-        
         Chat.query.filter_by(conversation_id=conversation_id).delete()
         db.session.commit()
 
@@ -60,16 +58,13 @@ def handle_message(msg):
     content = msg['content']
     receiver_id = msg['receiver_id']
 
-    
     user_ids = sorted([sender_id, receiver_id])
     conversation_id = '_'.join(map(str, user_ids))
 
-    
     message = Chat(content=content, sender_id=sender_id, receiver_id=receiver_id, conversation_id=conversation_id)
     db.session.add(message)
     db.session.commit()
 
-    
     socketio.emit('message', {
         'content': msg['content'],
         'sender': User.query.get(sender_id).name,
@@ -81,12 +76,10 @@ def handle_join(data):
     sender_id = data['sender_id']
     receiver_id = data['receiver_id']
 
-   
     user_ids = sorted([sender_id, receiver_id])
     conversation_id = '_'.join(map(str, user_ids))
     messages = Chat.query.filter_by(conversation_id=conversation_id).order_by(Chat.created_at).all()
 
-  
     join_room(conversation_id)
     print(f'User {sender_id} joined conversation {conversation_id}')
 
@@ -103,10 +96,8 @@ def handle_leave(data):
     sender_id = data['sender_id']
     receiver_id = data['receiver_id']
 
-    
     user_ids = sorted([sender_id, receiver_id])
     conversation_id = '_'.join(map(str, user_ids))
 
-   
     leave_room(conversation_id)
     print(f'User {sender_id} left conversation {conversation_id}')

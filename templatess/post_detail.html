@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ post.title }}
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <img src="{{ post.image_path | safe }}" class="card-img-top" alt="{{ post.title }}">
+        <div class="card-body">
+          <h1 class="card-title">{{ post.title }}</h1>
+          <p class="card-text">{{ post.text }}</p>
+          <hr>
+          <p><strong>Author:</strong> {{ post.user_id }}</p>
+          {% if session['id'] == post.user_id %}
+          <a href="{{ url_for('update_post', id=post.id) }}" class="btn btn-warning">Edit</a>
+          <a href="{{ url_for('delete', id=post.id) }}" class="btn btn-danger">Delete</a>
+          {% endif %}
+          <a href="{{ url_for('posts') }}" class="btn btn-secondary">Back to Posts</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

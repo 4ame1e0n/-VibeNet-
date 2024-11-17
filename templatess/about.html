@@ -1,1 +1,63 @@
+{% extends 'base.html' %}
 
+{% block title %}
+About
+{% endblock %}
+
+{% block body %}
+<div class="d-flex align-items-center justify-content-center min-vh-100">
+  <div class="container-xl text-center">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <h2 class="mb-4">About Us</h2>
+        <div class="team-members">
+          <!-- Team Member 1 -->
+          <div class="team-member mb-4">
+            <div class="img-box mx-auto">
+              <img src="https://i.pinimg.com/originals/c8/4f/95/c84f95709714bbadc37efebf1754ba22.gif" alt="Sagyndykov Danial" class="rounded-circle">
+            </div>
+            <p class="overview mt-2"><b>Sagyndykov Danial</b>, Backend Developer</p>
+            <p class="testimonial">A backend developer is a specialist who deals with the server side of websites, mobile and desktop applications and games. It implements the internal logic of the application, ensures its interaction with databases and external services.</p>
+          </div>
+          <!-- Team Member 2 -->
+          <div class="team-member mb-4">
+            <div class="img-box mx-auto">
+              <img src="https://i.pinimg.com/originals/de/c4/89/dec4890caf73f41318d9161eba9cf51e.gif" alt="Aruzhan Torebek" class="rounded-circle">
+            </div>
+            <p class="overview mt-2"><b>Aruzhan Torebek</b>, Frontend Developer</p>
+            <p class="testimonial">A frontend developer is a specialist who creates user interfaces. He is responsible for the entire external part of the site or application with which people interact: menus, product cards in the online store, buttons, feedback forms. Thanks to the high-quality work of the frontend developer, fast and convenient sites appear.</p>
+          </div>
+          <!-- Team Member 3 -->
+          <div class="team-member">
+            <div class="img-box mx-auto">
+              <img src="https://i.pinimg.com/originals/43/23/e9/4323e9a710bb6c8973346125892c845c.gif" alt="Kundyz Zhumazhanova" class="rounded-circle">
+            </div>
+            <p class="overview mt-2"><b>Kundyz Zhumazhanova</b>, Multi-Participant</p>
+            <p class="testimonial">A versatile member of our team, who actively helped with both frontend and backend development.On the frontend side, Kundyz helped improve the user interface design and customise the site's adaptability, making it user-friendly and attractive. On the backend side, she was involved in designing the database and setting up the server logic, which ensured the stability and functionality of the platform. </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const currentPath = location.pathname;
+    const navLinks = document.querySelectorAll('#navbarSupportedContent ul li a');
+
+    navLinks.forEach(link => {
+      if (link.getAttribute('href').includes(currentPath)) {
+        link.parentElement.classList.add('active');
+        const menuSubmenu = link.closest('.menu-submenu');
+        if (menuSubmenu) {
+          menuSubmenu.classList.add('show-dropdown');
+          menuSubmenu.parentElement.classList.add('active');
+        }
+      } else {
+        link.parentElement.classList.remove('active');
+      }
+    });
+  });
+</script>
+{% endblock %}

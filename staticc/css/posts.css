@@ -1,0 +1,57 @@
+body {
+  background: #FFF;
+  font-family: Arial, sans-serif;
+}
+
+.vk-container {
+  display: flex;
+  width: 100%;
+}
+
+.vk-sidebar {
+  width: 20%;
+  background: #FFF;
+  padding: 10px;
+}
+
+.vk-content {
+  flex: 1;
+  padding: 10px;
+}
+
+.vk-posts {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.vk-post {
+  display: flex;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #1A1A1D;
+  padding-bottom: 10px;
+}
+
+.vk-post__avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #ccc;
+}
+
+.vk-post__info {
+  flex: 1;
+  margin-left: 10px;
+}
+
+.vk-post__author {
+  font-weight: bold;
+  color: #333;
+}
+
+.vk-post__date {
+  font-size: 12px;
+  color: #999;
+}
+
+.vk-post__text {}
